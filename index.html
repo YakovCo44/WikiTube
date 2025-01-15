@@ -9,9 +9,25 @@
 <body>
     <header>
         <h1>Welcome to WikiTube</h1>
-        <input type="text" id="search-bar" placeholder="Search for videos or topics">
+        <input type="text" id="search-bar" placeholder="Search videos or topics">
         <button id="searchBtn">Search</button>
+        <button id="themeBtn">Change Theme</button>
     </header>
+
+    <div id="themeModal" class="modal">
+        <div class="modal-content">
+            <h3>Choose a Theme Color</h3>
+            <div id="color-options">
+                <button class="color-btn" data-color="#1e3c72" style="background-color: #1e3c72;"></button>
+                <button class="color-btn" data-color="#2a5298" style="background-color: #2a5298;"></button>
+                <button class="color-btn" data-color="black" style="background-color: black;"></button>
+                <button class="color-btn" data-color="#f44336" style="background-color: #f44336;"></button>
+            </div>
+            
+            <button id="closeThemeModal">Close</button>
+        </div>
+    </div>
+    
 
     <main>
         <section id="video-list">

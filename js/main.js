@@ -88,6 +88,11 @@ document.getElementById('searchBtn').addEventListener('click', performSearch)
 
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('modal')
+    const savedColor = localStorage.getItem('themeColor')
+    console.log('aplying saved color:', savedColor)
+    if (savedColor) {
+        document.body.style.backgroundColor = savedColor
+    }
     modal.style.display = 'none'
     top5SearchResults('trending videos')
     updateSearchHistory() 
@@ -146,6 +151,41 @@ function clearSearchHistory() {
     localStorage.removeItem('searchHistory')
     updateSearchHistory() 
 }
+
+document.getElementById('themeBtn').addEventListener('click', () => {
+    const themeModal = document.getElementById('themeModal')
+    themeModal.style.display = 'flex'
+})
+
+document.getElementById('closeThemeModal').addEventListener('click', () => {
+    const themeModal = document.getElementById('themeModal')
+    themeModal.style.display = 'none'
+})
+
+document.querySelectorAll('.color-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const color = event.target.getAttribute('data-color')
+        console.log('themecolor:', color)
+
+        if (color){
+            document.body.style.backgroundColor = color
+            localStorage.setItem('themeColor', color)
+            console.log('saved color:', document.body.style.backgroundColor)
+        } else {
+            console.error('Color not found')
+        } 
+        const themeModal = document.getElementById('themeModal')
+        themeModal.style.display = 'none' 
+    })
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedColor = localStorage.getItem('themeColor')
+    if (savedColor) {
+        document.body.style.backgroundColor = savedColor
+    }
+})
+
 
 
 
