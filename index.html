@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>WikiTube</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to WikiTube</h1>
+        <input type="text" id="search-bar" placeholder="Search for videos or topics">
+        <button id="searchBtn">Search</button>
+    </header>
+
+    <main>
+        <section id="video-list">
+            <h2>Most Viewed Videos</h2>
+            <ul>
+
+            </ul>
+        </section>
+
+        <section id="videoplayer">
+            <h2>Video Player</h2>
+            <div id="player">
+
+            </div>
+        </section>
+
+        <section id="wiki-info">
+            <div>
+                <h3>Wikipedia Information</h3>
+                <p id="wiki"></p>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to clear the search history?</p>
+            <button class="btn" id="yesBtn">Yes</button>
+            <button class="btn" id="noBtn">No</button>
+        </div>
+    </div>
+
+    <footer id="search-history-section">
+        <h3>Search History</h3>
+        <ul id="search-history"></ul>
+        <button id="clear-history">Clear History</button>
+    </footer>
+
+
+    
+
+    <script src="js/main.js"></script>
+</body>
+</html>
