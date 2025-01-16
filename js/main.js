@@ -1,6 +1,6 @@
 'use strict'
 
-const YOUTUBE_API_KEY = 'AIzaSyAlXNgfsLf_o_WRtvqxGVq2NwBaJHF3u2g'
+const YOUTUBE_API_KEY = 'AIzaSyANVyuOk5Hf0a_iXG9-9QupIlMg-LG1a2I'
 
 async function top5SearchResults(query){
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&maxResults=10&key=${YOUTUBE_API_KEY}&q=${query}`
