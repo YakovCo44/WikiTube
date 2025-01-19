@@ -131,7 +131,7 @@ header h1 {
 
 main {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.5fr 2fr; /* Adjust the ratio */
     grid-template-rows: auto 1fr;
     gap: 20px;
     width: 90%;
@@ -142,10 +142,12 @@ main {
 #video-list {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    background:  rgb(10, 1, 59);
+    background: rgb(10, 1, 59);
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%; 
+    max-width: 500px; 
 }
 
 #video-list h2 {
@@ -169,6 +171,38 @@ main {
 #video-list li:hover {
     color: #ffcc00;
     background-color: rgb(10, 1, 59);
+}
+
+.video-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.video-item:hover {
+    background-color: rgb(20, 20, 70);
+    transform: scale(1.02);
+}
+
+.video-thumbnail {
+    width: 80px;
+    height: 45px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+
+.video-title {
+    color: #ffcc00;
+    font-size: 1rem;
+    word-wrap: break-word; 
+    white-space: normal; 
+    overflow: visible; 
+    max-width: none; 
 }
 
 /* Video Player */
