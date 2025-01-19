@@ -1,6 +1,6 @@
 'use strict'
 
-const YOUTUBE_API_KEY = 'AIzaSyANVyuOk5Hf0a_iXG9-9QupIlMg-LG1a2I'
+const YOUTUBE_API_KEY = 'AIzaSyDhvfxTUodMlBwcJh2RiE2CivYen5Ug1gE'
 
 async function top5SearchResults(query){
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&videoEmbeddable=true&type=video&maxResults=10&key=${YOUTUBE_API_KEY}&q=${query}`
@@ -16,20 +16,34 @@ async function top5SearchResults(query){
     }
 }
 
-function searchResultsDisplay(videos){
+function searchResultsDisplay(videos) {
     const videoList = document.getElementById('video-list').querySelector('ul')
     videoList.innerHTML = ''
 
+    if (!videos || videos.length === 0) {
+        videoList.innerHTML = '<li>No videos found. Please try a different search.</li>'
+        return
+    }
+
     videos.forEach(video => {
-        console.log('Rendering video:', video.snippet.title)
         const listItem = document.createElement('li')
-        listItem.textContent = video.snippet.title
+        listItem.classList.add('video-item') 
+
+        const thumbnailUrl = video.snippet.thumbnails.default.url 
+        const title = video.snippet.title
+
+        listItem.innerHTML = `
+            <img src="${thumbnailUrl}" alt="Video thumbnail" class="video-thumbnail">
+            <span class="video-title">${title}</span>
+        `
+
         listItem.dataset.videoId = video.id.videoId
         listItem.addEventListener('click', () => {
             const videoId = video.id.videoId
             const videoTitle = video.snippet.title
-            loadVideo(videoId, videoTitle) 
+            loadVideo(videoId, videoTitle)
         })
+
         videoList.appendChild(listItem)
     })
 }
